@@ -1,17 +1,22 @@
 <h1>All Pets</h1>
 <div class="pet-cards">
-  <% @pets.each do |pet| %>
-    <div class="pet-card">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="pet-details">
-        <div>
-          <h2><%= pet.name %></h2>
-          <i><%= pet.species %></i> |
-          <%= pet.description %>
+  <% if @pets.any? %>
+    <% @pets.each do |pet| %>
+      <div class="pet-card">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="pet-details">
+          <div>
+            <h2><%= pet.name %></h2>
+            <i><%= pet.species %></i> |
+            <%= pet.description %>
+          </div>
+          <p>$<%= pet.price %> /day</p>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-pet-user avatar-bordered" />
         </div>
-        <p>$<%= pet.price %> per day</p>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-pet-user avatar-bordered" />
+        <%= link_to "", pet_path(pet), class:"card-pet-link" %>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <h2>Sorry, no pets found!</h2>
   <% end %>
 </div>
