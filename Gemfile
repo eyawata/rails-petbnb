@@ -65,3 +65,4 @@ end
 
 # additions
 gem "devise"
+gem 'faker'
