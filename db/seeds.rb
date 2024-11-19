@@ -69,3 +69,18 @@ pet_names.each do |name|
 end
 
 puts "Created #{Pet.count} pets!"
+
+puts "Creating bookings..."
+
+10.times do
+  pet = Pet.all.sample
+  Booking.create!(
+    start_date: DateTime.now,
+    end_date: DateTime.now + rand(1..4),
+    total_price: pet.price,
+    pet: pet,
+    user: User.where.not(id: pet.user).sample
+  )
+end
+
+puts "Created #{Booking.count} bookings!"
