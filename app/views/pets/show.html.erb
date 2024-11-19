@@ -2,6 +2,11 @@
 <h2><%= @pet.species %></h2>
 <p><%= @pet.description %></p>
 <p>$<%= @pet.price %>/day</p>
-<div class="booking">
-  <h3>book this pet</h3>
+<div class="border mx-3 p-3">
+  <h3>Book this pet</h3>
+  <%= simple_form_for [@pet, @booking] do |f| %>
+    <%= f.input :start_date, as: :date, html5: true %>
+    <%= f.input :end_date, as: :date, html5: true %>
+    <%= f.submit %>
+  <% end %>
 </div>
