@@ -15,8 +15,16 @@ pet_names = [
 ]
 
 species = [
-  "Dog", "Cat", "Bird", "Rabbit", "Hamster", 
-  "Turtle", "Fish", "Snake", "Guinea Pig", "Lizard"
+  ["Dog", "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
+  ["Cat", "https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
+  ["Bird", "https://images.pexels.com/photos/17811/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
+  ["Rabbit", "https://images.pexels.com/photos/326012/pexels-photo-326012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
+  ["Hamster", "https://images.pexels.com/photos/2013665/pexels-photo-2013665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
+  ["Turtle", "https://images.pexels.com/photos/3150271/pexels-photo-3150271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
+  ["Fish", "https://images.pexels.com/photos/1145274/pexels-photo-1145274.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
+  ["Snake", "https://images.pexels.com/photos/34426/snake-rainbow-boa-reptile-scale.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
+  ["Guinea Pig", "https://images.pexels.com/photos/63853/guinea-pig-sea-pig-house-cute-guinea-pig-house-63853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
+  ["Lizard", "https://images.pexels.com/photos/735174/pexels-photo-735174.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"]
 ]
 
 descriptions = [
@@ -59,9 +67,13 @@ puts "Created #{User.count} pets!"
 puts "Creating pets..."
 
 pet_names.each do |name|
+  arr = species.sample
+  photo_url = arr[1]
+  breed = arr[0]
+
   Pet.create!(
     name: name,
-    species: species.sample,
+    species: breed,
     description: descriptions.sample,
     price: rand(50..200),
     user: User.all.sample
